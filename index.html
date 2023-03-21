@@ -17,6 +17,7 @@
         <button type="button" onclick="scanQRCode()">掃碼</button>
         <button type="button" onclick="scanQRCodeV2()">掃碼V2</button>
     </div>
+    <span id="qr-code"></span>
 </body>
 <script>
     const liffID = '1660768574-ERK1l0Wn';
@@ -41,7 +42,8 @@
 
     function scanQRCode() {
         liff.scanCode().then(result => {
-            alert(JSON.stringify(result));
+            // alert(JSON.stringify(result));
+            document.getElementById('qr-code').innerHTML = JSON.stringify(result);
         }).catch((error) => {
             alert(JSON.stringify(error));
         });
@@ -49,7 +51,8 @@
 
     function scanQRCodeV2() {
         liff.scanCodeV2().then(result => {
-            alert(JSON.stringify(result));
+            // alert(JSON.stringify(result));
+            document.getElementById('qr-code').innerHTML = JSON.stringify(result);
         }).catch((error) => {
             alert(JSON.stringify(error));
         });
