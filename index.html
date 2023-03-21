@@ -24,7 +24,7 @@
     liff.init({
         liffId: liffID
     }).then(function () {
-        alert('LIFF init');
+        console.log('LIFF init');
     }).catch(function (error) {
         console.log(error);
     });
@@ -40,23 +40,19 @@
     }
 
     function scanQRCode() {
-        if (liff.scanCode) {
-            liff.scanCode().then(result => {
-                alert(JSON.stringify(result));
-            });
-        } else {
-            alert("Scan QR Code is not supported by this browser.");
-        }
+        liff.scanCode().then(result => {
+            alert(JSON.stringify(result));
+        }).catch((error) => {
+            alert(JSON.stringify(error));
+        });
     }
 
     function scanQRCodeV2() {
-        if (liff.scanCode) {
-            liff.scanCodeV2().then(result => {
-                alert(JSON.stringify(result));
-            });
-        } else {
-            alert("Scan QR Code is not supported by this browser.");
-        }
+        liff.scanCodeV2().then(result => {
+            alert(JSON.stringify(result));
+        }).catch((error) => {
+            alert(JSON.stringify(error));
+        });
     }
 </script>
 
