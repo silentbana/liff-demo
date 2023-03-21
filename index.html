@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>liff demo</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+
+<body>
+    <div>liff demo</div>
+    <div>
+        <button type="button" onclick="getPosition()">取得位址</button>
+        <button type="button" onclick="scanQRCode()">掃碼</button>
+    </div>
+</body>
+<script>
+    const liffID = '1660768574-ERK1l0Wn';
+
+    liff.init({
+        liffId: liffID
+    }).then(function () {
+        alert('LIFF init');
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+    function getPosition() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                alert(`Latitude: ${position.coords.latitude}   Longitude: ${position.coords.longitude}`);
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function scanQRCode() {
+        if (liff.scanCode) {
+            liff.scanCode().then(result => {
+                alert(JSON.stringify(result));
+            });
+        } else {
+            alert("Scan QR Code is not supported by this browser.");
+        }
+    }
+</script>
+
+</html>
