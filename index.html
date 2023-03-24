@@ -30,7 +30,7 @@
         console.log('LIFF init');
         document.getElementById('qr-code').innerHTML = 'LIFF init success';
         document.getElementById('IDToken').innerHTML = 'IDToken：' + JSON.stringify(liff.getIDToken());
-        document.getElementById('IDToken').innerHTML = 'AccessToken' + JSON.stringify(liff.getAccessToken());
+        document.getElementById('AccessToken').innerHTML = 'AccessToken' + JSON.stringify(liff.getAccessToken());
     }).catch(function (error) {
         console.log(error);
     });
