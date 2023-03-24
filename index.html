@@ -18,6 +18,7 @@
         <button type="button" onclick="scanQRCodeV2()">掃碼V2</button>
     </div>
     <span id="qr-code"></span>
+    <span id="user"></span>
 </body>
 <script>
     const liffID = '1660768574-ERK1l0Wn';
@@ -26,6 +27,7 @@
         liffId: liffID
     }).then(function () {
         console.log('LIFF init');
+        document.getElementById('user').innerHTML = JSON.stringify(liff.getContext());
     }).catch(function (error) {
         console.log(error);
     });
