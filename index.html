@@ -22,6 +22,8 @@
     <span id="IDToken"></span>
     <br>
     <span id="AccessToken"></span>
+    <br>
+    <span id="Profile"></span>
 </body>
 <script>
     const liffID = '1660768574-ERK1l0Wn';
@@ -33,6 +35,7 @@
         document.getElementById('qr-code').innerHTML = 'LIFF init success';
         document.getElementById('IDToken').innerHTML = 'IDToken：' + JSON.stringify(liff.getIDToken());
         document.getElementById('AccessToken').innerHTML = 'AccessToken：' + JSON.stringify(liff.getAccessToken());
+        document.getElementById('Profile').innerHTML = 'Profile：' + JSON.stringify(liff.getProfile());
     }).catch(function (error) {
         console.log(error);
     });
