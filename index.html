@@ -18,7 +18,8 @@
         <button type="button" onclick="scanQRCodeV2()">掃碼V2</button>
     </div>
     <span id="qr-code"></span>
-    <span id="user"></span>
+    <span id="IDToken"></span>
+    <span id="AccessToken"></span>
 </body>
 <script>
     const liffID = '1660768574-ERK1l0Wn';
@@ -28,7 +29,8 @@
     }).then(function () {
         console.log('LIFF init');
         document.getElementById('qr-code').innerHTML = 'LIFF init success';
-        document.getElementById('user').innerHTML = JSON.stringify(liff.getContext());
+        document.getElementById('IDToken').innerHTML = 'IDToken：' + JSON.stringify(liff.getIDToken());
+        document.getElementById('IDToken').innerHTML = 'AccessToken' + JSON.stringify(liff.getAccessToken());
     }).catch(function (error) {
         console.log(error);
     });
