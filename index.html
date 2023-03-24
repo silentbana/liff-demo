@@ -27,6 +27,7 @@
         liffId: liffID
     }).then(function () {
         console.log('LIFF init');
+        document.getElementById('qr-code').innerHTML = 'LIFF init success';
         document.getElementById('user').innerHTML = JSON.stringify(liff.getContext());
     }).catch(function (error) {
         console.log(error);
