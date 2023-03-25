@@ -16,6 +16,7 @@
         <button type="button" onclick="getPosition()">取得位址</button>
         <button type="button" onclick="scanQRCode()">掃碼</button>
         <button type="button" onclick="scanQRCodeV2()">掃碼V2</button>
+        <button type="button" onclick="sendMessage()">發訊息給我</button>
     </div>
     <span id="qr-code"></span>
     <br>
@@ -66,6 +67,20 @@
         }).catch((error) => {
             alert(JSON.stringify(error));
         });
+    }
+    function sendMessage() {
+        liff.sendMessages([
+            {
+                type: 'text',
+                text: liff.getProfile(),
+            },
+        ])
+            .then(() => {
+                console.log('message sent');
+            })
+            .catch((err) => {
+                console.log('error', err);
+            });
     }
 </script>
 
